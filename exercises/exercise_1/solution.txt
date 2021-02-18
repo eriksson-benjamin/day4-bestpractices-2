@@ -1,0 +1,16 @@
+a)
+Started with making the setup.py file.
+Then I made the corresponding changes to primes.py and saved it as primes.pyx.
+I run the command python setup.py build_ext --inplace, and run and import primes.
+When I time it I get 
+3.42 ms ± 769 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+
+b)
+As can be seen in time_rbf.txt the rbf_network() function takes 20.39 s whereas the rbf_scipy takes 0.86, corresponding to a speed up of a factor 24.
+
+c)
+From time_rbf.txt we see that the most time is spent in the nested for loop in rbf_network().
+Presumably scipy vectorizes the RBF calculation, thus avoiding any nested loops.
+
+d)
+
