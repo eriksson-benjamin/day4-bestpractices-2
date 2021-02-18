@@ -1,0 +1,56 @@
+Python:  28.92379856109619
+Scipy:  1.206225872039795
+Cython:  0.3380696773529053
+Wrote profile results to rbf.py.lprof
+Timer unit: 1e-06 s
+
+Total time: 19.6137 s
+File: rbf.py
+Function: rbf_network at line 7
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     7                                           @profile
+     8                                           def rbf_network(X, beta, theta):
+     9                                           
+    10         1          3.0      3.0      0.0      N = X.shape[0]
+    11         1          2.0      2.0      0.0      D = X.shape[1]
+    12         1          6.0      6.0      0.0      Y = np.zeros(N)
+    13                                           
+    14      1001        555.0      0.6      0.0      for i in range(N):
+    15   1001000     799342.0      0.8      4.1          for j in range(N):
+    16   1000000     669885.0      0.7      3.4              r = 0
+    17   6000000    4385127.0      0.7     22.4              for d in range(D):
+    18   5000000    9715343.0      1.9     49.5                  r += (X[j, d] - X[i, d]) ** 2
+    19   1000000     954861.0      1.0      4.9              r = r**0.5
+    20   1000000    3088567.0      3.1     15.7              Y[i] += beta[j] * exp(-(r * theta)**2)
+    21                                           
+    22         1          1.0      1.0      0.0      return Y
+
+Total time: 1.20611 s
+File: rbf.py
+Function: rbf_scipy at line 26
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    26                                           @profile
+    27                                           def rbf_scipy(X, beta):
+    28                                               
+    29         1         30.0     30.0      0.0      N = X.shape[0]
+    30         1          1.0      1.0      0.0      D = X.shape[1]    
+    31         1    1148613.0 1148613.0     95.2      rbf = Rbf(X[:,0], X[:,1], X[:,2], X[:,3], X[:, 4], beta)
+    32                                           #    Xtuple = tuple([X[:, i] for i in range(D)])
+    33         1         46.0     46.0      0.0      Xtuple = tuple([X[:, i] for i in range(D)])
+    34                                           
+    35         1      57423.0  57423.0      4.8      return rbf(*Xtuple)
+
+Total time: 0.338015 s
+File: rbf.py
+Function: dummy at line 37
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    37                                           @profile
+    38                                           def dummy(X, beta, theta):
+    39         1     338015.0 338015.0    100.0      rbf_network_cython(X, beta, theta)
+

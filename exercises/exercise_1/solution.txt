@@ -13,4 +13,5 @@ From time_rbf.txt we see that the most time is spent in the nested for loop in r
 Presumably scipy vectorizes the RBF calculation, thus avoiding any nested loops.
 
 d)
-
+As can be seen in time_cython.txt, running the same code as the "naive python implementation" but using Cython we get an increase in speed with a factor 60.
+The Cython version is even about 3 times faster than the scipy version.
