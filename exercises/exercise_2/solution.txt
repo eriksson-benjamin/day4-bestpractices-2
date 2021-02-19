@@ -1,0 +1,9 @@
+a)
+mpiexec -n 5 python mpi_ranks.py will print the ranks from five different processes.
+
+b)
+mpi_sum.py can be run in the terminal with
+mpiexec -n X python mpi_sum.py
+where X is a positive integer determining how many processes to start. Random numbers are generated in each process
+with rank > 0. The random number is sent to the process with rank = 0 where all numbers are summed.
+
