@@ -1,0 +1,5 @@
+a)
+Downloaded the jupyter notebook file.
+
+b)
+I plotted some normally distributed data in a 2D histogram in the Jupyter Notebook file called gaussian_2D.ipynb
