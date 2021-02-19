@@ -1,0 +1,8 @@
+a)
+pytest installed
+
+b)
+Tested the first few functions in the simplest way.
+Tested simple_div and poly_first using @pytest.mark.parametrize.
+Tested poly_second using @pytest.mark.parametrize with a list of tuples with 100 different values.
+The output file for the tests is called math_test.txt
