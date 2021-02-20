@@ -1,0 +1,5 @@
+a)
+Added docstrings to simple_math.py
+
+b)
+Created a documentation html page using Sphinx. It can be accessed from day4-bestpractices-2/exercises/exercise_5/docs/_build/html/index.html
